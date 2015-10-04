@@ -2,6 +2,8 @@
     width: 80px;
 }
 
-.second {
-    
+.button {
+    color: white;
+    background-color: red;
+    display: inline-block;
 }

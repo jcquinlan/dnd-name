@@ -24,7 +24,7 @@ window.onload = function(){
         for(var i = 0; race.options.length; i++){
             if(race.options[i].selected){
                 return race.options[i].value;
-                alert('BLAH');
+                alert('Hey!');
                 break;
             }
         }
@@ -38,9 +38,5 @@ window.onload = function(){
         var lName = lastNames[num2];
 
         return fName + " " + lName;
-
     }
-
-    //onload test function
-    alert('yo!');
 }
