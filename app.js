@@ -30,5 +30,15 @@ window.onload = function(){
         return name;
     }
 
-    alert(checkField(race));
+    var capitalize = function(word){
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    }
+
+    var fillName = function(){
+        nameOne.innerText = capitalize(genName(firstNames));
+        nameTwo.innerText = capitalize(genName(lastNames));
+    }
+
+
+    alert(fillName());
 }
