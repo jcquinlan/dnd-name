@@ -11,32 +11,24 @@ window.onload = function(){
     var gender = document.customize.gender;
     var race = document.customize.race;
 
-    var checkGender = function(){
-        for(var i = 0; i < gender.options.length; i++){
-            if(gender.options[i].selected){
-                return gender.options[i].value;
+    var nameOne = document.getElementById('char-name').childNodes[0];
+    var nameTwo = document.getElementById('char-name').childNodes[1];
+
+    var checkField = function(field){
+        for(var i = 0; i < field.options.length; i++){
+            if(field.options[i].selected){
+                return field.options[i].value;
                 break;
             }
         }
     }
 
-    var checkRace = function(){
-        for(var i = 0; race.options.length; i++){
-            if(race.options[i].selected){
-                return race.options[i].value;
-                alert('Hey!');
-                break;
-            }
-        }
+    var genName = function(list){
+        var num = Math.floor(Math.random() * list.length);
+        var name = list[num];
+
+        return name;
     }
 
-    var genName = function(){
-        var num1 = Math.floor(Math.random() * firstNames.length);
-        var num2 = Math.floor(Math.random() * lastNames.length);
-
-        var fName = firstNames[num1];
-        var lName = lastNames[num2];
-
-        return fName + " " + lName;
-    }
+    alert(checkField(race));
 }
