@@ -1,10 +1,15 @@
 window.onload = function(){
 
-    var firstNames = 'james ally cole tyler quinn';
-    var lastNames = 'quinlan sheehan bush kofron kender';
+    //global variables
+    var fhm = 'james cole tyler quinn';
+    var lhm = 'quinlan bush kofron kender';
+    var fhf = 'ally, clare';
+    var lhf = 'sheehan, farrow';
 
-    firstNames = firstNames.split(' ');
-    lastNames = lastNames.split(' ');
+    fhm = fhm.split(' ');
+    lhm = lhm.split(' ');
+    fhf = fhf.split(' ');
+    lhf = lhf.split(' ');
 
     var fName, lName;
 
@@ -14,6 +19,7 @@ window.onload = function(){
     var nameOne = document.getElementById('char-name').childNodes[0];
     var nameTwo = document.getElementById('char-name').childNodes[1];
 
+    //basic functions
     var checkField = function(field){
         for(var i = 0; i < field.options.length; i++){
             if(field.options[i].selected){
@@ -35,10 +41,22 @@ window.onload = function(){
     }
 
     var fillName = function(){
-        nameOne.innerText = capitalize(genName(firstNames));
-        nameTwo.innerText = capitalize(genName(lastNames));
+        var firstName, lastName;
+        switch (gender.value) {
+            case 'male':
+                firstName = fhm;
+                lastName = lhm;
+            case 'female':
+                firstName = fhf;
+                lastName = lhf;
+            default:
+                break;
+
+        }
+        nameOne.innerText = capitalize(genName(firstName)) + " ";
+        nameTwo.innerText = capitalize(genName(lastName));
     }
 
-
-    alert(fillName());
+    // Event listeners
+    var roll = document.getElementById('roll').onclick = fillName;
 }
