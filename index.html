@@ -4,30 +4,50 @@
     <meta charset="UTF-8">
     <title>D&D Namegen</title>
     <link rel="stylesheet" href="normalize.css" type="text/css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
     <link rel="stylesheet" href="styles.css" type="text/css">
+
 </head>
 <!--END HEAD-->
 <body>
-    <h1>D&D NAMES</h1>
+    <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper center-align">
+            <a href="#!" class="brand-logo">D&D</a>
+          </div>
+        </nav>
+    </div>
 
-    <form name="customize">
-        <select name="gender">
-            <option value="female">Female</option>
-            <option value="male">Male</option>
-        </select>
+    <div class="container">
+        <div class="row">
+            <div class="col l2 s6 offset-l5 offset-s3">
+            <form name="customize">
+                <select class="browser-default" name="gender">
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col l2 s6 offset-l5 offset-s3">
+                <select class="browser-default" name="race">
+                    <option value="human">Human</option>
+                    <option value="elf">Elf</option>
+                    <option value="dwarf">Dwarf</option>
+                    <option value="gnome">Gnome</option>
+                    <option value="tiefling">Tiefling</option>
+                </select>
+            </form><!--END OPTIONS FORM-->
+            </div>
+        </div>
 
-        <select name="race">
-            <option value="human">Human</option>
-            <option value="elf">Elf</option>
-            <option value="dwarf">Dwarf</option>
-            <option value="gnome">Gnome</option>
-            <option value="tiefling">Tiefling</option>
-        </select>
-    </form><!--END OPTIONS FORM-->
+        <h1 id="char-name"><span class="first">James </span><span class="second">Quinlan</span></h1>
 
-    <h1 id="char-name"><span class="first">James </span><span class="second">Quinlan</span></h1>
-
-    <img src="assets/d20.png" alt="D-20" id="roll">
+        <img src="assets/d20.png" alt="D-20" id="roll">
+    </div>
 
 
 <script src="app.js" type="text/javascript"></script><!--LOAD JS-->

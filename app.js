@@ -3,18 +3,15 @@ window.onload = function(){
     //global variables
     var fhm = 'james cole tyler quinn';
     var lhm = 'quinlan bush kofron kender';
-    var fhf = 'ally, clare';
-    var lhf = 'sheehan, farrow';
+    var fhf = 'ally clare';
+    var lhf = 'sheehan farrow';
 
     fhm = fhm.split(' ');
     lhm = lhm.split(' ');
     fhf = fhf.split(' ');
     lhf = lhf.split(' ');
 
-    var fName, lName;
-
-    var gender = document.customize.gender;
-    var race = document.customize.race;
+    var firstName, lastName;
 
     var nameOne = document.getElementById('char-name').childNodes[0];
     var nameTwo = document.getElementById('char-name').childNodes[1];
@@ -41,14 +38,18 @@ window.onload = function(){
     }
 
     var fillName = function(){
-        var firstName, lastName;
-        switch (gender.value) {
+        var gender = checkField(document.customize.gender);
+        var race = checkField(document.customize.race);
+
+        switch (gender) {
             case 'male':
                 firstName = fhm;
                 lastName = lhm;
+                break;
             case 'female':
                 firstName = fhf;
                 lastName = lhf;
+                break;
             default:
                 break;
 
