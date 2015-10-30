@@ -11,12 +11,15 @@ window.onload = function(){
     fhf = fhf.split(' ');
     lhf = lhf.split(' ');
 
+    var firstNameList, lastNameList;
+
     var firstName, lastName;
 
     var nameOne = document.getElementById('char-name').childNodes[0];
     var nameTwo = document.getElementById('char-name').childNodes[1];
 
-    //basic functions
+
+    //basic or general functions
     var checkField = function(field){
         for(var i = 0; i < field.options.length; i++){
             if(field.options[i].selected){
@@ -37,25 +40,53 @@ window.onload = function(){
         return word.charAt(0).toUpperCase() + word.slice(1);
     }
 
+    var checkClass = function(el, cl){
+        var elem = document.querySelector(el);
+        for(var i = 0; i < elem.classList.length; i++){
+            if(elem.classList[i] == cl) {
+                return true;
+                break;
+            }
+        }
+    }
+
+    // more specific functions
+    var pastNames = function(){
+        var list = document.querySelector(".past-names");
+        var oldNameEl = document.createElement("li");
+        var oldName = document.createTextNode(firstName + lastName);
+        oldNameEl.appendChild(oldName);
+        list.appendChild(oldNameEl);
+    }
+
     var fillName = function(){
         var gender = checkField(document.customize.gender);
         var race = checkField(document.customize.race);
 
         switch (gender) {
             case 'male':
-                firstName = fhm;
-                lastName = lhm;
+                firstNameList = fhm;
+                lastNameList = lhm;
                 break;
             case 'female':
-                firstName = fhf;
-                lastName = lhf;
+                firstNameList = fhf;
+                lastNameList = lhf;
                 break;
             default:
                 break;
 
         }
-        nameOne.innerText = capitalize(genName(firstName)) + " ";
-        nameTwo.innerText = capitalize(genName(lastName));
+
+
+        firstName = capitalize(genName(firstNameList)) + " ";
+        lastName = capitalize(genName(lastNameList));
+
+        nameOne.innerText = firstName;
+        nameTwo.innerText = lastName;
+
+        pastNames();
+
+        alert(checkClass(".nav-wrapper", "blah"));
     }
 
     // Event listeners

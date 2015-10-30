@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="normalize.css" type="text/css">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
     <link rel="stylesheet" href="styles.css" type="text/css">
@@ -16,14 +17,14 @@
     <div class="navbar-fixed">
         <nav>
           <div class="nav-wrapper center-align">
-            <a href="#!" class="brand-logo">D&D</a>
+            <h3 id="logo">D&D Names</h3>
           </div>
         </nav>
     </div>
 
     <div class="container">
         <div class="row">
-            <div class="col l2 s6 offset-l5 offset-s3">
+            <div class="col l4 s6 offset-l4 offset-s3">
             <form name="customize">
                 <select class="browser-default" name="gender">
                     <option value="female">Female</option>
@@ -32,7 +33,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col l2 s6 offset-l5 offset-s3">
+            <div class="col l4 s6 offset-l4 offset-s3">
                 <select class="browser-default" name="race">
                     <option value="human">Human</option>
                     <option value="elf">Elf</option>
@@ -44,9 +45,22 @@
             </div>
         </div>
 
-        <h1 id="char-name"><span class="first">James </span><span class="second">Quinlan</span></h1>
+        <div class="row center-align">
+            <div class="col s10 l6 offset-s1 offset-l3">
+                <h1 id="char-name"><span class="first">Generate a </span><span class="second">name.</span></h1>
+                <img src="assets/d20.png" alt="D-20" id="roll">
+                <p class="soft">Click to generate a name.</p>
+            </div>
+        </div>
 
-        <img src="assets/d20.png" alt="D-20" id="roll">
+        <div class="row">
+            <div class="col l4 s6 offset-l4 offset-s3">
+                <ul class="past-names center-align">
+
+                </ul>
+            </div>
+        </div>
+
     </div>
 
 
