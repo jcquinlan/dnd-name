@@ -29,6 +29,7 @@ window.onload = function(){
         }
     }
 
+    //this function just picks a random item out of an array
     var genName = function(list){
         var num = Math.floor(Math.random() * list.length);
         var name = list[num];
@@ -40,6 +41,8 @@ window.onload = function(){
         return word.charAt(0).toUpperCase() + word.slice(1);
     }
 
+    // vanilla version of jQuery's hasClass method
+    // takes two strings, first has either . or # in front of word
     var checkClass = function(el, cl){
         var elem = document.querySelector(el);
         for(var i = 0; i < elem.classList.length; i++){
@@ -51,6 +54,7 @@ window.onload = function(){
     }
 
     // more specific functions
+    //Adds the previous name to the ul stack of names
     var pastNames = function(){
         var list = document.querySelector(".past-names");
         var oldNameEl = document.createElement("li");
@@ -59,6 +63,7 @@ window.onload = function(){
         list.appendChild(oldNameEl);
     }
 
+    //the main function that wraps everything else
     var fillName = function(){
         var gender = checkField(document.customize.gender);
         var race = checkField(document.customize.race);
@@ -77,14 +82,13 @@ window.onload = function(){
 
         }
 
+        pastNames();
 
         firstName = capitalize(genName(firstNameList)) + " ";
         lastName = capitalize(genName(lastNameList));
 
         nameOne.innerText = firstName;
         nameTwo.innerText = lastName;
-
-        pastNames();
 
         alert(checkClass(".nav-wrapper", "blah"));
     }
