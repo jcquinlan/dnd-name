@@ -60,7 +60,9 @@ window.onload = function(){
         var oldNameEl = document.createElement("li");
         var oldName = document.createTextNode(firstName + lastName);
         oldNameEl.appendChild(oldName);
-        list.appendChild(oldNameEl);
+        if(firstName != undefined){
+            list.appendChild(oldNameEl);
+        }
     }
 
     //the main function that wraps everything else
@@ -90,7 +92,7 @@ window.onload = function(){
         nameOne.innerText = firstName;
         nameTwo.innerText = lastName;
 
-        alert(checkClass(".nav-wrapper", "blah"));
+        alert(checkClass(".nav-wrapper", "center-align"));
     }
 
     // Event listeners
