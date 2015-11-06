@@ -1,5 +1,3 @@
-window.onload = function(){
-
     //global variables
     var fhm = 'james cole tyler quinn';
     var lhm = 'quinlan bush kofron kender';
@@ -15,8 +13,12 @@ window.onload = function(){
 
     var firstName, lastName;
 
+    var pastNamesArray = [];
+
     var nameOne = document.getElementById('char-name').childNodes[0];
     var nameTwo = document.getElementById('char-name').childNodes[1];
+
+    var list = document.querySelector(".past-names");
 
 
     //basic or general functions
@@ -42,9 +44,7 @@ window.onload = function(){
     }
 
     // vanilla version of jQuery's hasClass method
-    // takes two strings, first has either . or # in front of word
-    var checkClass = function(el, cl){
-        var elem = document.querySelector(el);
+    var checkClass = function(elem, cl){
         for(var i = 0; i < elem.classList.length; i++){
             if(elem.classList[i] == cl) {
                 return true;
@@ -53,16 +53,42 @@ window.onload = function(){
         }
     }
 
+    var killKids = function(el){
+        while(el.hasChildNodes()){
+            list.removeChild(list.firstChild);
+        }
+    }
+
     // more specific functions
     //Adds the previous name to the ul stack of names
     var pastNames = function(){
-        var list = document.querySelector(".past-names");
-        var oldNameEl = document.createElement("li");
-        var oldName = document.createTextNode(firstName + lastName);
-        oldNameEl.appendChild(oldName);
+        var oldNameLi, oldName;
+        //clear list
+        killKids(list);
         if(firstName != undefined){
-            list.appendChild(oldNameEl);
+            pastNamesArray.push(firstName + lastName);
         }
+        for(var i = 0; i < pastNamesArray.length; i++){
+            oldNameLi = document.createElement("li");
+            oldName = document.createTextNode(pastNamesArray[pastNamesArray.length - i]);
+            oldNameLi.appendChild(oldName);
+
+            list.appendChild(oldNameLi);
+        }
+        alert(firstName);
+    }
+
+    //adds class to lock a name and prevent it from changing
+    //set to onclick of nameOne and nameTwo in the bottom
+    var lockName = function(){
+        if (!checkClass(this, 'locked')){
+            this.style.opacity = .5;
+            this.classList.add('locked');
+        } else {
+            this.classList.remove('locked');
+            this.style.opacity = 1;
+        }
+
     }
 
     //the main function that wraps everything else
@@ -84,17 +110,22 @@ window.onload = function(){
 
         }
 
+        //updates old names ul with previous name
         pastNames();
 
-        firstName = capitalize(genName(firstNameList)) + " ";
-        lastName = capitalize(genName(lastNameList));
+        //Updates text nodes with new names if they are not locked
+        if (!(checkClass(nameOne, 'locked'))){
+            firstName = capitalize(genName(firstNameList)) + " ";
+        }
+        if(!(checkClass(nameTwo, 'locked'))){
+            lastName = capitalize(genName(lastNameList));
+        }
 
         nameOne.innerText = firstName;
         nameTwo.innerText = lastName;
-
-        alert(checkClass(".nav-wrapper", "center-align"));
     }
 
     // Event listeners
     var roll = document.getElementById('roll').onclick = fillName;
-}
+    nameOne.onclick = lockName;
+    nameTwo.onclick = lockName;
