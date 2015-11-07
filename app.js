@@ -66,6 +66,9 @@
         //clear list
         killKids(list);
         if(firstName != undefined){
+            if(pastNamesArray.length >= 5){
+                pastNamesArray.shift();
+            }
             pastNamesArray.push(firstName + lastName);
         }
         for(var i = 0; i < pastNamesArray.length; i++){
@@ -75,7 +78,6 @@
 
             list.appendChild(oldNameLi);
         }
-        alert(firstName);
     }
 
     //adds class to lock a name and prevent it from changing
