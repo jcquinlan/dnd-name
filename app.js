@@ -65,18 +65,20 @@
         var oldNameLi, oldName;
         //clear list
         killKids(list);
-        if(firstName != undefined){
+        if(firstName != undefined && lastName != undefined){
             if(pastNamesArray.length >= 5){
                 pastNamesArray.shift();
             }
-            pastNamesArray.push(firstName + lastName);
-        }
-        for(var i = 0; i < pastNamesArray.length; i++){
-            oldNameLi = document.createElement("li");
-            oldName = document.createTextNode(pastNamesArray[pastNamesArray.length - i]);
-            oldNameLi.appendChild(oldName);
 
-            list.appendChild(oldNameLi);
+            pastNamesArray.push(firstName + lastName);
+
+            for(var i = 0; i < pastNamesArray.length; i++){
+                oldNameLi = document.createElement("li");
+                oldName = document.createTextNode(pastNamesArray[(pastNamesArray.length - i) - 1]);
+                oldNameLi.appendChild(oldName);
+
+                list.appendChild(oldNameLi);
+            }
         }
     }
 
@@ -116,6 +118,10 @@
         pastNames();
 
         //Updates text nodes with new names if they are not locked
+        if(checkClass(nameOne, 'locked') && checkClass(nameTwo, 'locked')){
+            alert("You can't generate a new name with both names locked.");
+        }
+
         if (!(checkClass(nameOne, 'locked'))){
             firstName = capitalize(genName(firstNameList)) + " ";
         }
