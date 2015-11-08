@@ -5,6 +5,7 @@
     <title>D&D Namegen</title>
     <link rel="stylesheet" href="normalize.css" type="text/css">
     <!-- Compiled and minified CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
     <link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet' type='text/css'>
     <!-- Compiled and minified JavaScript -->
@@ -25,47 +26,56 @@
 
     <div class="container">
         <div class="row">
-            <div class="col l6"></div>
-            <div class="row">
-                <div class="col l4 s6 offset-l4 offset-s3">
-                <form name="customize">
-                    <select class="browser-default" name="gender">
-                        <option value="female">Female</option>
-                        <option value="male">Male</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col l4 s6 offset-l4 offset-s3">
-                    <select class="browser-default" name="race">
-                        <option value="human">Human</option>
-                        <option value="elf">Elf</option>
-                        <option value="dwarf">Dwarf</option>
-                        <option value="gnome">Gnome</option>
-                        <option value="tiefling">Tiefling</option>
-                    </select>
-                </form><!--END OPTIONS FORM-->
-                </div>
-            </div>
 
-            <div class="row center-align">
-                <div class="col s10 l6 offset-s1 offset-l3">
-                    <h1 id="char-name"><span class="first">Generate a </span><span class="second">name.</span></h1>
-                    <img src="assets/d20.png" alt="D-20" id="roll">
-                    <p class="soft">Click to generate a name.</p>
-                </div>
-            </div>
+            <!--START LEFT HAND SIDE-->
+            <div class="col s12 m6">
+                <div class="row">
+                    <div class="col s8 offset-s2">
+                    <form name="customize">
+                        <select class="browser-default" name="gender">
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                        </select>
+                    </div>
+                </div><!-- END FORM 1 ROW -->
+                <div class="row">
+                    <div class="col s8 offset-s2">
+                        <select class="browser-default" name="race">
+                            <option value="human">Human</option>
+                            <option value="elf">Elf</option>
+                            <option value="dwarf">Dwarf</option>
+                            <option value="gnome">Gnome</option>
+                            <option value="tiefling">Tiefling</option>
+                        </select>
+                    </form><!--END OPTIONS FORM-->
+                    </div>
+                </div><!--END FORM 2 ROW-->
+                <div class="row">
+                    <div class="col s8 offset-s2 center-align">
+                        <img src="assets/d20.png" alt="D-20" id="roll">
+                        <p class="soft">Click to generate a name.</p>
+                    </div>
+                </div><!--END BUTTON ROW-->
+            </div><!--END LEFT HAND SIDE-->
 
-            <div class="row">
-                <div class="col l4 s6 offset-l4 offset-s3">
-                    <ul class="past-names center-align">
-
-                    </ul>
+            <!--START RIGHT HAND SIDE-->
+            <div class="col s12 m6">
+                <div class="row center-align">
+                    <div class="col s12 l6 offset-l3">
+                        <h1 id="char-name"><span class="first">Generate a </span><span class="second">name.</span></h1>
+                    </div>
                 </div>
-            </div>
+
+                <div class="row">
+                    <div class="col l4 s6 offset-l4 offset-s3">
+                        <ul class="past-names center-align">
+
+                        </ul>
+                    </div>
+                </div><!--END PAST NAMES ROW-->
+            </div><!--END RIGHT HAND SIDE-->
+
         </div>
-
-
     </div>
 
 

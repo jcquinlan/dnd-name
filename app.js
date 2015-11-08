@@ -17,6 +17,7 @@
 
     var nameOne = document.getElementById('char-name').childNodes[0];
     var nameTwo = document.getElementById('char-name').childNodes[1];
+    var roll = document.getElementById('roll')
 
     var list = document.querySelector(".past-names");
 
@@ -95,6 +96,18 @@
 
     }
 
+    //controls the animation when a new name is generated
+    var spinDie = function(){
+        var deg;
+        roll.style.webkitTransform === 'rotate(720deg)' ? deg = 0 : deg = 720;
+
+        roll.style.webkitTransform = 'rotate(' + deg + 'deg)';
+        roll.style.mozTransform    = 'rotate(' + deg + 'deg)';
+        roll.style.msTransform     = 'rotate(' + deg + 'deg)';
+        roll.style.oTransform      = 'rotate(' + deg + 'deg)';
+        roll.style.transform       = 'rotate(' + deg + 'deg)';
+    }
+
     //the main function that wraps everything else
     var fillName = function(){
         var gender = checkField(document.customize.gender);
@@ -111,29 +124,30 @@
                 break;
             default:
                 break;
-
         }
-
-        //updates old names ul with previous name
-        pastNames();
 
         //Updates text nodes with new names if they are not locked
+        //Prevents anything from updating is both names are locked
         if(checkClass(nameOne, 'locked') && checkClass(nameTwo, 'locked')){
             alert("You can't generate a new name with both names locked.");
-        }
+        } else {
+            //updates old names ul with previous name
+            pastNames();
+            spinDie();
 
-        if (!(checkClass(nameOne, 'locked'))){
-            firstName = capitalize(genName(firstNameList)) + " ";
-        }
-        if(!(checkClass(nameTwo, 'locked'))){
-            lastName = capitalize(genName(lastNameList));
-        }
+            if (!(checkClass(nameOne, 'locked'))){
+                firstName = capitalize(genName(firstNameList)) + " ";
+            }
+            if(!(checkClass(nameTwo, 'locked'))){
+                lastName = capitalize(genName(lastNameList));
+            }
 
-        nameOne.innerText = firstName;
-        nameTwo.innerText = lastName;
+            nameOne.innerText = firstName;
+            nameTwo.innerText = lastName;
+        }
     }
 
     // Event listeners
-    var roll = document.getElementById('roll').onclick = fillName;
+    roll.onclick = fillName;
     nameOne.onclick = lockName;
     nameTwo.onclick = lockName;
