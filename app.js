@@ -122,6 +122,9 @@
                 firstNameList = fhf;
                 lastNameList = lhf;
                 break;
+            case 'either':
+                firstNameList = fhm.concat(fhf);
+                lastNameList = lhm.concat(lhf);
             default:
                 break;
         }
