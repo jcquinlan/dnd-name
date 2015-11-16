@@ -19,28 +19,20 @@
     <div class="navbar-fixed">
         <nav>
           <div class="nav-wrapper center-align">
-            <h3 id="logo">D&D Names</h3>
+            <h3 id="logo">namesake</h3>
           </div>
         </nav>
     </div>
 
     <div class="container">
         <div class="row">
-
-            <!--START LEFT HAND SIDE-->
-            <div class="col s12 m6">
-                <div class="row">
-                    <div class="col s8 offset-s2">
+            <div class="col s12 m6 offset-m3">
                     <form name="customize">
                         <select class="browser-default" name="gender">
                             <option value="female">Female</option>
                             <option value="male">Male</option>
                             <option value="either">Either</option>
                         </select>
-                    </div>
-                </div><!-- END FORM 1 ROW -->
-                <div class="row">
-                    <div class="col s8 offset-s2">
                         <select class="browser-default" name="race">
                             <option value="human">Human</option>
                             <option value="elf">Elf</option>
@@ -49,32 +41,28 @@
                             <option value="tiefling">Tiefling</option>
                         </select>
                     </form><!--END OPTIONS FORM-->
-                    </div>
-                </div><!--END FORM 2 ROW-->
-                <div class="row">
-                    <div class="col s8 offset-s2 center-align">
-                        <img src="assets/d20.png" alt="D-20" id="roll">
-                        <p class="soft">Click to generate a name.</p>
-                    </div>
-                </div><!--END BUTTON ROW-->
-            </div><!--END LEFT HAND SIDE-->
+            </div>
 
-            <!--START RIGHT HAND SIDE-->
-            <div class="col s12 m6">
-                <div class="row center-align">
-                    <div class="col s12 l6 offset-l3">
+            <div class="col s12">
+                <div class="center-align">
                         <h1 id="char-name"><span class="first">Generate a </span><span class="second">name.</span></h1>
-                    </div>
                 </div>
 
-                <div class="row">
-                    <div class="col l4 s6 offset-l4 offset-s3">
+                    <div class="col s12">
                         <ul class="past-names center-align">
 
                         </ul>
                     </div>
-                </div><!--END PAST NAMES ROW-->
-            </div><!--END RIGHT HAND SIDE-->
+            </div>
+
+
+
+            <div class="col s12 center-align">
+                <img src="assets/d20.png" alt="D-20" id="roll">
+                <p class="soft">Click to generate a name.</p>
+            </div>
+
+
 
         </div>
     </div>
